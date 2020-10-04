@@ -1,0 +1,327 @@
+﻿@model WebApplication3.Models.ResultViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <html>
+    
+    <body>
+        <form>
+            <fieldset>
+                <legend >User Details Form</legend>
+            </fieldset>
+            <hr>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <table>
+            
+                <tr>
+                    <td>
+                        <div class="form-group ">
+                            @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label col-md-7" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Full Name" } })
+                                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group ">
+                            @Html.LabelFor(model => model.UserEmail, htmlAttributes: new { @class = "control-label col-md-7" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.UserEmail, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter email" } })
+                                @Html.ValidationMessageFor(model => model.UserEmail, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group ">
+                            @Html.LabelFor(model => model.PasswordHash, htmlAttributes: new { @class = "control-label col-md-7" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.PasswordHash, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Password" } })
+                                @Html.ValidationMessageFor(model => model.PasswordHash, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group ">
+                            @Html.LabelFor(model => model.CivilIdNumber, htmlAttributes: new { @class = "control-label col-md-7" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.CivilIdNumber, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Civil Id Number" } })
+                                @Html.ValidationMessageFor(model => model.CivilIdNumber, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-7" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @type="date", @class = "form-control", @placeholder = "Enter Date Of Birth" } })
+                                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MobileNo, htmlAttributes: new { @class = "control-label col-md-7" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.MobileNo, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Mobile No." } })
+                                @Html.ValidationMessageFor(model => model.MobileNo, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-7" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Address" } })
+                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.RoleId, htmlAttributes: new { @class = "control-label col-md-7" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.RoleId, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Role Id" } })
+                                @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ProfilePic, htmlAttributes: new { @class = "control-label col-md-7" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.ProfilePic, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Profile Pic" } })
+                                @Html.ValidationMessageFor(model => model.ProfilePic, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="CreatedDate">Created Date</label>
+                            <input type="datetime" class="form-control" id="CreatedDate" aria-describedby="emailHelp" placeholder="Enter DATE">
+                            <small id="emailHelp" class="form-text text-muted">Enter Created Date here</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="ModifiedDate">Modified Date</label>
+                            <input type="datetime" class="form-control" id="ModifiedDate" aria-describedby="emailHelp" placeholder="Enter Modified Date">
+                            <small id="emailHelp" class="form-text text-muted">Enter Modified Date here</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="IsNotificationActive">Is Notification Active</label>
+
+                            <select class="form-control" id="IsNotificationActive">
+                                <option>Not Yet</option>
+                                <option>True</option>
+                                <option>False</option>
+
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="IsActive">Is Active</label>
+                            <select class="form-control" id="IsActive">
+                                <option>Not Yet</option>
+                                <option>True</option>
+                                <option>False</option>
+
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+
+                        <div class="form-group">
+                            <label for="DeviceId">Device Id</label>
+                            <input type="number" class="form-control" id="DeviceId" aria-describedby="emailHelp" placeholder="Enter Device Id">
+                            <small id="emailHelp" class="form-text text-muted">Enter Device Id here</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="DeviceType">Device Type</label>
+                            <input type="text" class="form-control" id="DeviceType" aria-describedby="emailHelp" placeholder="Enter Device Type">
+                            <small id="emailHelp" class="form-text text-muted">Enter Device Type here</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="FcmToken">Fcm Token</label>
+                            <input type="text" class="form-control" id="FcmToken" aria-describedby="emailHelp" placeholder="Enter Fcm Token">
+                            <small id="emailHelp" class="form-text text-muted">Enter Device Type here</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="Verify">Verified!</label>
+                            <select class="form-control" id="Verify">
+                                <option>Not Yet</option>
+                                <option>True</option>
+                                <option>False</option>
+
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+
+                        <div class="form-group">
+                            <label for="VerifiedBy">Verified By</label>
+                            <input type="text" class="form-control" id="Verified By" aria-describedby="emailHelp" placeholder="Enter Verified by">
+                            <small id="emailHelp" class="form-text text-muted">Enter Name from which you verified here.</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="Area">Area Name</label>
+                            <input type="text" class="form-control" id="Area" aria-describedby="emailHelp" placeholder="Enter your Area">
+                            <small id="emailHelp" class="form-text text-muted">Enter Area here.</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="Block">Fcm Token</label>
+                            <input type="text" class="form-control" id="Block" aria-describedby="emailHelp" placeholder="Enter Block">
+                            <small id="emailHelp" class="form-text text-muted">Enter From which block you are here.</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="Street">Street</label>
+                            <input type="text" class="form-control" id="Street" aria-describedby="emailHelp" placeholder="Enter Street Name">
+                            <small id="emailHelp" class="form-text text-muted">Enter Street here</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="Housing">Housing</label>
+                            <input type="text" class="form-control" id="Housing" aria-describedby="emailHelp" placeholder="Enter Housing">
+                            <small id="emailHelp" class="form-text text-muted">Enter Housing here</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="Floor">Fcm Token</label>
+                            <input type="text" class="form-control" id="Floor" aria-describedby="emailHelp" placeholder="Enter Floor">
+                            <small id="emailHelp" class="form-text text-muted">Enter your Floor no. here</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="NewPass">New Pass</label>
+                            <input type="text" class="form-control" id="NewPass" aria-describedby="emailHelp" placeholder="Enter new Pass ">
+                            <small id="emailHelp" class="form-text text-muted">Enter New Pass Details here.</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="ConPass">Confirm Pass</label>
+                            <input type="text" class="form-control" id="ConPass" aria-describedby="emailHelp" placeholder="Enter Confirm Pass">
+                            <small id="emailHelp" class="form-text text-muted">Enter Confirm pass Details here.</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="Judda">Judda</label>
+                            <input type="text" class="form-control" id="Judda" aria-describedby="emailHelp" placeholder="Enter Judda">
+                            <small id="emailHelp" class="form-text text-muted">Enter Judda here</small>
+
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="Reason">Reason</label>
+                            <input type="text" class="form-control" id="Reason" aria-describedby="emailHelp" placeholder="Enter Reason">
+                            <small id="emailHelp" class="form-text text-muted">Enter your Reason here.</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="ActivatedBy">Activated By</label>
+                            <input type="text" class="form-control" id="ActivatedBy" aria-describedby="emailHelp" placeholder="Enter Activated by">
+                            <small id="emailHelp" class="form-text text-muted">Enter Activated By here</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="CarLicense">Car License</label>
+                            <input type="text" class="form-control" id="CarLicense" aria-describedby="emailHelp" placeholder="Enter Car License Details">
+                            <small id="emailHelp" class="form-text text-muted">Enter Car License Details here</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="VerifiedDate">Verified Date</label>
+                            <input type="datetime" class="form-control" id="VerifiedDate" aria-describedby="emailHelp" placeholder="Enter Verified Date">
+                            <small id="emailHelp" class="form-text text-muted">Enter Verified Date here</small>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="ActivatedDate">Activated Date</label>
+                            <input type="datetime" class="form-control" id="ActivatedDate" aria-describedby="emailHelp" placeholder="Enter Activated Date">
+                            <small id="emailHelp" class="form-text text-muted">Enter Activated Date here</small>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="button" class="btn btn-outline-success">@Html.ActionLink("List", "About")</button>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <button type="submit" class="btn btn-outline-primary">Submit</button>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+           </table>
+        </form>
+    </body>
+
+
+</html>
+}

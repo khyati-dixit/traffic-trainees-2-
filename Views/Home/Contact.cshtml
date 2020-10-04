@@ -1,0 +1,74 @@
+﻿@model IEnumerable<WebApplication3.Models.ResultViewModel>
+
+@{
+    ViewBag.Title = "Contact";
+}
+
+
+
+<h2>Details</h2>
+
+
+<div class="container" style="margin-top: 20px;">
+    <p>
+        @Html.ActionLink("Create New", "Index")
+    </p>
+
+    <h3>User Details</h3>
+    <table border="1" class="table table-hover">
+        <thead class="table-active">
+            <tr>
+                <th scope="col">UserId</th>
+                <th scope="col">FullName</th>
+                <th scope="col">UserEmail</th>
+                <th scope="col">CivilIdNumber</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Address</th>
+                <th scope="col">RoleId</th>
+                <th scope="col">Created Date</th>
+                <th scope="col">DeviceId</th>
+                <th scope="col">DeviceType</th>
+                <th scope="col">FcmToken</th>
+                <th scope="col">Area</th>
+                <th scope="col">Block</th>
+                <th scope="col">Street</th>
+                <th scope="col">Floor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var v in Model)
+            {
+                <tr>
+                    <td>@v.UserId</td>
+                    <td>@v.FullName</td>
+                    <td>@v.UserEmail</td>
+                    <td>@v.CivilIdNumber</td>
+                    <td>@v.DOB</td>
+                    <td>@v.MobileNo</td>
+                    <td>@v.Address</td>
+                    <td>@v.RoleId</td>
+                    <td>@v.CreatedDate</td>
+                    <td>@v.DeviceId</td>
+                    <td>@v.DeviceType</td>
+                    <td>@v.FcmToken</td>
+                    <td>@v.Area</td>
+                    <td>@v.Block</td>
+                    <td>@v.Street</td>
+                    <td>@v.Floor</td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = v.UserId }) |
+                        @Html.ActionLink("Details", "Details", new { id = v.UserId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = v.UserId })  |
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = v.UserId }) |
+        @Html.ActionLink("Back to List", "Index")*@
+</p>

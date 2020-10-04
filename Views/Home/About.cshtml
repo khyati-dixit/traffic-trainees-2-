@@ -1,0 +1,87 @@
+﻿@*@model IEnumerable<WebApplication3.Models.UserViewModel>*@
+@model PagedList.IPagedList<WebApplication3.Models.ResultViewModel>
+@using PagedList.Mvc;
+@{
+
+    ViewBag.Title = "About";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+
+<body>
+
+
+
+    <div class="container" style="margin-top: 20px;">
+        <p>
+            @Html.ActionLink("Create New", "Index")
+        </p>
+
+        <h3>User Details</h3>
+        <table border="1" class="table table-hover">
+            <thead>
+                <tr class="table-active">
+                    <th scope="col">UserId</th>
+                    <th scope="col">FullName</th>
+                    <th scope="col">User Email</th>
+                    <th scope="col">Civil Id Number</th>
+                    <th scope="col">Car License</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var v in Model)
+                {
+                    <tr class="table-primary">
+                        <td>@v.UserId</td>
+                        <td>@v.FullName</td>
+                        <td>@v.UserEmail</td>
+                        <td>@v.CivilIdNumber</td>
+                        <td>@v.CarLicense</td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = v.UserId }) |
+                            @Html.ActionLink("Details", "Details", new { id = v.UserId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = v.UserId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div>
+            <!--<ul class="pagination">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#">
+                        Page @Model.FirstItemOnPage of @Model.TotalItemCount
+                        &laquo;
+                    </a>
+                </li>
+                <li class="page-item active">
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                </li>
+
+                <li class="page-item">
+                    <a class="page-link">-->
+            @*// @Html.PagedListPager(Model, page => Url.Action("ABout", new { page }))*@
+            <!--&raquo;
+                    </a>
+                </li>
+            </ul>-->
+            <div>
+
+            </div>
+            @Html.PagedListPager(Model, page => Url.Action("About", new { page, pageSize = Model.PageSize }))
+            Showing Records: @Model.FirstItemOnPage  to @Model.LastItemOnPage from Total of @Model.TotalItemCount Records
+
+        </div>
+    </div>
+</body>
+</html>
